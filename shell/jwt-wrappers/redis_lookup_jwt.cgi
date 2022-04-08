@@ -2,7 +2,7 @@
 
 jwt=$1
 logpath=/opt/jwt/jwt_access.log
-touch $logpath
+touch $logpath || exit 1
 b2=$(echo -n $jwt | b2sum | xxd -r -p | base64 | tr -d '\n')
 
 bstatus=$(echo "get $b2" | redis-cli)
