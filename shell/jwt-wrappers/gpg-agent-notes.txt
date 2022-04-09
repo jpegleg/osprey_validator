@@ -1,0 +1,11 @@
+GNUPG config elements
+
+cat ~/.gnupg/gpg-agent.conf
+allow-loopback-pinentry
+
+cat ~/.gnupg/gpg.conf
+use-agent
+pinentry-mode loopback
+
+
+gpg --list-secret-keys 
