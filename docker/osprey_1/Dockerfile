@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y apt-transport-https aptitude && aptitud
 RUN mkdir /opt/jwt/
 
 COPY apache2.conf /etc/apache2/apache2.conf
-COPY cgi-sec.conf /etc/
 COPY serve-cgi-bin.conf /etc/apache2/conf-enabled/
 COPY create.cgi /var/www/html/
 COPY validate.cgi /var/www/html/
