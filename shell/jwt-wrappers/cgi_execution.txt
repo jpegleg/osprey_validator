@@ -1,0 +1,7 @@
+# To be executed by (web cgi) etc.
+
+# generated wrapped jwt
+pgp_jwt_generate.cgi myvalidator@internal.email
+
+# dencrypt and digest wrapped jwt
+pgp_w_redis_lookup_jwt.cgi $encrypted_jwt
