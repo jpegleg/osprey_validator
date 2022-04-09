@@ -8,7 +8,7 @@ blobjwt=$(curl http://127.0.0.1:5599/login -d '{"identity": "root@localhost", "s
 
 jwt=$(echo -n $blobjwt | gpg -e -r $1 --armor | base64 | tr -d '\n')
 b2=$(echo -n $blobjwt | b2sum | cut -c1-24 | tr -d '\n')
-echo -n "$jwt" | redis-cli -x SET $b2
+echo -n "$jwt" | redis-cli -x SET $b2 >/dev/null 2>&1
 redis-cli EXPIRE $b2 60 >/dev/null 2>&1
 
 echo "$jwt"
