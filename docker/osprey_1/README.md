@@ -1,4 +1,4 @@
-# OSPREY 1
+# OSPREY 1 🦅
 
 This is a service wrapper, not a separate service. The microservice goes within or otherwise replaces the royal_blobs_jwt_service.
 
