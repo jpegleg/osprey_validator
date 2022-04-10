@@ -50,3 +50,39 @@ Client generates private key and CSR.
 The PKI signs the CSR with a unique key, returning the certificate to be paired with the key on the client (myclientkeycert.pem in the example).
 
 The CA key can be disposable as only the CA cert is needed appended to auth.pem which gets put within Osprey in /etc/auth.pem during image build.
+
+
+While the royal_blobs_jwt_service log goes to STDOUT and thus to the docker/kubernetes logs, there is also useful data inside the container. 
+
+The log file /opt/jwt/jwt_access_check.log containers a record of `time b2truncatedhex b64b2` whenever a JWT is used.
+This jwt_access_check.log can be used for event auditing etc.
+
+The b64 encoded BLAKE2 has a TTLS of 9 days for audit purposes, but the shorter truncated hex version is the "live" version that is expired along with the token at 60 seconds.
+
+```
+root@fd29cf75d923:/opt/jwt# cat jwt_access_check.log
+20220410060157453253643 17beff83340fb909e2876ec0 F77/gzQPuQnih27AJg40pdt/KjqpWQcWKnPHSMDPEqgRzH6hwjChUbrNkovyFiIYETmqhickmh6EXDaWIYsuGw==
+root@fd29cf75d923:/opt/jwt# redis-cli
+127.0.0.1:6379> keys *
+1) "F77/gzQPuQnih27AJg40pdt/KjqpWQcWKnPHSMDPEqgRzH6hwjChUbrNkovyFiIYETmqhickmh6EXDaWIYsuGw=="
+2) "17beff83340fb909e2876ec0"
+127.0.0.1:6379>
+```
+
+Here is an example of the main log data in STDOUT:
+
+```
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+httpd not running, trying to start
+============================
+| royal_blobs_jwt_service  |
+============================
+-> Symmetric HS512 JWT
+-> base64 encoded BLAKE2
+-> UUID version 4 tracking
+ADDED~RSA~signed~blob~format
+Starting Warp listener on the loopback device, port 5599...
+2022-04-10 06:01:46.163864109 UTC - royal_blobs_jwt_service INFO - START JWT usage UID a2e8eda7-2f59-465f-9a36-7b7559d0698c
+2022-04-10 06:01:46.164358651 UTC - royal_blobs_jwt_service INFO - a2e8eda7-2f59-465f-9a36-7b7559d0698c - base64 BLAKE2: "F77/gzQPuQnih27AJg40pdt/KjqpWQcWKnPHSMDPEqgRzH6hwjChUbrNkovyFiIYETmqhickmh6EXDaWIYsuGw=="
+2022-04-10 06:01:57.474179728 UTC - royal_blobs_jwt_service INFO - admin resource provided
+```
