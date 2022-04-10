@@ -24,7 +24,7 @@ COPY sign.sh /opt/jwt/
 COPY verify.sh /opt/jwt/
 
 RUN chmod +x /usr/sbin/jwt-server && chmod +x /var/www/html/create.cgi && chmod +x /var/www/html/validate.cgi && chmod +x /opt/jwt/sign.sh && chmod +x /opt/jwt/verify.sh
-RUN ln -sf /dev/stdout /opt/jwt/jwt_access.log
+RUN touch /opt/jwt/jwt_access_check.log && chown www-data:www-data /opt/jwt/jwt_access_check.log
 RUN ln -sf /dev/stdout /opt/jwt/jwt.log
 RUN a2enmod cgi
 
