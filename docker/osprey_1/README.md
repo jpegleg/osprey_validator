@@ -1,5 +1,7 @@
 # OSPREY 1 🦅
 
+End to End protection abstraction prototype on top of JWT.
+
 This is a service wrapper, not a separate service. The microservice goes within or otherwise replaces the royal_blobs_jwt_service.
 
 This means that each client has TLS auth to the individual container, using a token for access specific to that container.
