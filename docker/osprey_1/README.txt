@@ -29,3 +29,13 @@ Where "royal_blobs_jwt_service ADMIN 2" is returned would be the microservice or
 You may be thinking, this is crazy, this breaks all our wonderful APIs! Yes, that is the point.
 
 All the API functions are trapped behind authenticated wrappers. In order to regain API functionality and still use this technique without breaking the benefits gained, additional functionality to pass in the API request would be included in the .cgi files and client instructions.
+
+In addition to the forced expiration and tamper-proofing, individual clients can be removed by removing the corresponding private ca cert in auth.pem.
+
+<h4>Each client gets its own secret CA sign during set up, not included here</h4>
+
+Client generates private key and CSR.
+
+The PKI signs the CSR with a unique key, returning the certificate to be paired with the key on the client (myclientkeycert.pem in the example).
+
+The CA key can be disposable as only the CA cert is needed appended to auth.pem which gets put within Osprey in /etc/auth.pem during image build.
