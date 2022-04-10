@@ -13,4 +13,12 @@ With this approach, the JWT is no longer treated directly as a JWT, but instead 
 
 <h4>For JWT generation and validation starting point (as used in the prototypes) see https://github.com/jpegleg/royal_blobs_jwt_service</h4>
 
+<h3>Osprey 1</h3>
+
+Compile the royal_blobs_jwt_service with cargo, put the binary in the Docker build dir with this is a working demonstration:
+
+https://github.com/jpegleg/osprey_validator/tree/main/docker/osprey_1
+
+<h4>The demo includes demo private keys, don't use those for real stuff, only demo.</h4>
+
 
