@@ -1,6 +1,6 @@
 # OSPREY 1 🦅
 
-End to End protection abstraction prototype on top of JWT.
+End to End protection abstraction prototype on top of JWT for zero-trust service modelling.
 
 This is a service wrapper, not a separate service. The microservice goes within or otherwise replaces the royal_blobs_jwt_service.
 
