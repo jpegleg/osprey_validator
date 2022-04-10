@@ -1,3 +1,5 @@
+Currently the GPG approach apache web cgi appears broken
+
 GNUPG config elements
 
 cat ~/.gnupg/gpg-agent.conf
@@ -9,3 +11,5 @@ pinentry-mode loopback
 
 
 gpg --list-secret-keys 
+
+
