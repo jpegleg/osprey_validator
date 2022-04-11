@@ -7,7 +7,7 @@ echo -n $1 | xxd -r -p > /var/tmp/$uid
 jwt="$(openssl rsautl -verify -in /var/tmp/$uid -inkey /opt/jwt/sign.pub -pubin)"
 rm -rf /var/tmp/$uid
 logpath=/opt/jwt/jwt_access.log
-b2=$(echo -n $jwt | b2sum | cut -c1-24 | tr -d '\n')
+b2=$(echo -n $jwt | b2sum -l 96 | tr -d '\n')
 bstatus=$(echo "get $b2" | redis-cli)
 blen=$(expr length "$bstatus")
 if [ "$blen" == "0" ]; then
