@@ -57,7 +57,7 @@ While the royal_blobs_jwt_service log goes to STDOUT and thus to the docker/kube
 The log file /opt/jwt/jwt_access_check.log containers a record of `time b2truncatedhex b64b2` whenever a JWT is used.
 This jwt_access_check.log can be used for event auditing etc.
 
-The b64 encoded BLAKE2 has a TTLS of 9 days for audit purposes, but the shorter truncated hex version is the "live" version that is expired along with the token at 60 seconds.
+The b64 encoded BLAKE2 has a TTL of 9 days for audit purposes, but the shorter truncated hex version is the "live" version that is expired along with the token at 60 seconds.
 
 ```
 root@fd29cf75d923:/opt/jwt# cat jwt_access_check.log
