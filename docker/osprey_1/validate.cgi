@@ -3,7 +3,7 @@ echo "Content-Type: text/html";
 echo
 jwt="$(/opt/jwt/verify.sh $1)"
 logpath=/opt/jwt/jwt_access_check.log
-b2=$(echo -n $jwt | b2sum -l 96 | tr -d '\n')
+b2=$(echo -n $jwt | b2sum -l 96 | cut -d' ' -f1 | tr -d '\n')
 b64=$(echo -n $jwt | b2sum | xxd -r -p | base64 | tr -d '\n')
 bstatus=$(echo "get $b2" | redis-cli)
 blen=$(expr length "$bstatus")
