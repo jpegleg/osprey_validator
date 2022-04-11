@@ -9,7 +9,7 @@ echo -n $blobjwt > /var/tmp/$uid
 jwt=$(openssl rsautl -sign -in /var/tmp/$uid -inkey /opt/jwt/sign.key | xxd -p | tr -d '\n')
 rm -rf /var/tmp/$uid
 
-b2=$(echo -n $blobjwt | b2sum | cut -c1-24 | tr -d '\n')
+b2=$(echo -n $blobjwt | b2sum -l 96 | tr -d '\n')
 echo -n "$jwt" | redis-cli -x SET $b2  >/dev/null 2>&1
 redis-cli EXPIRE $b2 60 >/dev/null 2>&1
 echo "$jwt"
