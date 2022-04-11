@@ -6,7 +6,7 @@ This is a service wrapper, not a separate service. The microservice goes within 
 
 This means that each client has TLS auth to the individual container, using a token for access specific to that container.
 
-If used with Kubernetes Deployments, the Replicas will need to be 1 per instance as each container does cache based authorization. If you want to scale it horizontal with replicas, then the cache needs to be moved out and into a shared cache, and wrap more security around that interaction ;)
+If used with Kubernetes Deployments, the Replicas will need to be 1 per instance as each container does cache based authorization. If you want to scale it horizontal with replicas, then the cache needs to be moved out and into a shared cache or cache consolidation handled so that each replica knows which JWTs are active, and wrap more security around that interaction. Alternatively, the cache could be removed and the wrapper rearranged to not use it. The JWTs will still expire normally without the Redis cache ;)
 
 Each token is valid for 60 seconds before it expires in both JWT form and in Redis cache.
 
