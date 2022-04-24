@@ -16,3 +16,6 @@ The demo service is here: https://github.com/jpegleg/fixadm
 The demo fixadm also includes proc100 and flush-hydrate examples.
 
 Compile it and place the resulting binary in pwd of the Dockerfile build :)
+
+Another difference between osprey 2 and osprey 1 is that osprey 2 includes a key and certificate demo generator called generate_crypt.
+The generate_crypt is for demo purposes.
