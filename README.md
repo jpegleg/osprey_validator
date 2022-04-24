@@ -11,7 +11,9 @@ The approach uses mTLS (client auth) in HAProxy, letting valid client certificat
 With this approach, the JWT is no longer treated directly as a JWT, but instead is treated as a signed blob with custom processing, then treated as a JWT under the hood.
 </h3>
 
-<h4>For JWT generation and validation starting point (as used in the prototypes) see https://github.com/jpegleg/royal_blobs_jwt_service</h4>
+<h4>For JWT generation and validation starting point (as used in the prototype osprey 1) see https://github.com/jpegleg/royal_blobs_jwt_service</h4>
+
+<h4>For JWT generation and validation starting point + program execution template (as used in the prototype osprey 2) see https://github.com/jpegleg/fixadm</h4>
 
 <h3>Osprey 1</h3>
 
@@ -22,3 +24,10 @@ https://github.com/jpegleg/osprey_validator/tree/main/docker/osprey_1
 <h4>The demo includes demo private keys, don't use those for real stuff, only demo.</h4>
 
 
+<h3>Osprey 2</h3>
+
+Compile the fixadm_service with cargo, put the binary in the Docker build dir along with the demo files and generated files:
+
+https://github.com/jpegleg/osprey_validator/tree/main/docker/osprey_2
+
+<h4>The example execututions and HMAC need to be adjusted as needed per use case</h4>
