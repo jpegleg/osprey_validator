@@ -12,7 +12,7 @@ selfgen () {
   gensecp
   cp secp384r1.pem inter.key
   openssl req -out CSR.csr -new -key secp384r1.pem -subj "/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2" &&
-  openssl x509 -req -days 3653 -in CSR.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out generated.pem -sha256
+  openssl x509 -req -days 365 -in CSR.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out generated.pem -sha256
   openssl verify -CAfile ca.crt generated.pem || exit 1
 
 }
