@@ -4,7 +4,7 @@ echo
 
 blobjwt=$(curl http://127.0.0.1:5600/login -d '{"identity": "observiceadmin@authorized.domain.99_map", "service_id": "3ec85f59dce67fc936d7f1e63466aea3b6c"}' -H 'Content-Type: application/json'  | cut -c14-616 | cut -d '|' -f2)
 
-uid="99_$RANDOM$RANDOM"
+uid="/var/tmp/99_$RANDOM$RANDOM"
 echo -n $blobjwt > $uid
 jwt=$(openssl rsautl -sign -in $uid -inkey /opt/jwt/sign.key | xxd -p | tr -d '\n')
 rm -rf $uid
