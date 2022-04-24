@@ -13,4 +13,6 @@ The demo flus-hydrate deletes all keys in redis/0 and populates redis from a fla
 
 The demo service is here: https://github.com/jpegleg/fixadm
 
+The demo fixadm also includes proc100 and flush-hydrate examples.
+
 Compile it and place the resulting binary in pwd of the Dockerfile build :)
