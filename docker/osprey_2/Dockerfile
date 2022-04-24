@@ -36,4 +36,4 @@ RUN a2enmod cgi
 
 EXPOSE 443
 
-CMD cd /opt/jwt/workspace && /usr/sbin/apachectl restart && /usr/sbin/jwt-server > /opt/jwt/jwt.log 2>&1 & /usr/bin/redis-server > /opt/jwt/redis.log 2>&1 & /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg
+CMD cd /opt/jwt/workspace && /usr/sbin/apachectl start && /usr/sbin/jwt-server > /opt/jwt/jwt.log 2>&1 & /usr/bin/redis-server > /opt/jwt/redis.log 2>&1 & /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg
