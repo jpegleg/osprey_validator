@@ -19,7 +19,7 @@ COPY vuser2.cgi /var/www/html/
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
 COPY keycert.pem /etc/keycert.pem
 COPY auth.pem /etc/auth.pem
-COPY royal_blobs_jwt_service /usr/sbin/jwt-server
+COPY fixadm /usr/sbin/jwt-server
 COPY sign.key /opt/jwt/
 COPY sign.pub /opt/jwt/
 COPY sign.sh /opt/jwt/
