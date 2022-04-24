@@ -74,7 +74,6 @@ Here is an example of the main log data in STDOUT:
 ```
 Proxy http-in started.
 AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.5. Set the 'ServerName' directive globally to suppress this message
-httpd not running, trying to start
 ============================
 | royal_blobs_jwt_service  |
 ============================
@@ -85,11 +84,10 @@ ADDED~RSA~signed~blob~format
 Starting Warp listener on the loopback device, port 5599...
 2022-04-24 07:15:56.839685480 UTC - royal_blobs_jwt_service INFO - START JWT usage UID 665bd442-b20f-4c3d-a22d-8101f957e12a
 2022-04-24 07:15:56.839923400 UTC - royal_blobs_jwt_service INFO - 665bd442-b20f-4c3d-a22d-8101f957e12a - base64 BLAKE2: "S+ZSg35TNin9utEyyxtstEAwfH1zcwGEEA+BiKYoA7XJD0IDs1X4OjiXv7E2S8/qrXEqzd4MqvFj/sWYqGJCwA=="
-\____CLIENT AUTH AUDIT: [24/Apr/2022:07:15:56.798] TLS_AES_256_GCM_SHA384 1127 192.168.1.121:38470 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:07:15:56.809", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "server":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1"}
+\____CLIENT AUTH AUDIT: [24/Apr/2022:07:15:56.798] TLS_AES_256_GCM_SHA384 104 192.168.1.121:38470 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:07:15:56.809", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "server":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1"}
 2022-04-24 07:16:07.665244541 UTC - royal_blobs_jwt_service INFO - user command  provided
 \____CLIENT AUTH AUDIT: [24/Apr/2022:07:16:07.599] TLS_AES_256_GCM_SHA384 1127 192.168.1.121:38472 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:07:16:07.609", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "server":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1"}
 2022-04-24 07:19:21.826986500 UTC - royal_blobs_jwt_service ERRO - error: Rejection(JWTTokenError)
 \____CLIENT AUTH AUDIT: [24/Apr/2022:07:19:21.756] TLS_AES_256_GCM_SHA384 1182 192.168.1.121:38474 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:07:19:21.768", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "server":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1"}
-
 
 ```
