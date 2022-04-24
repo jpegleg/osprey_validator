@@ -9,7 +9,7 @@ The example uses shell scripts called proc100 and flush-hydrate.
 
 Demo proc100 returns a json file `cat data.json` from the working directory of the fixadm service.
 
-The demo flus-hydrate deletes all keys in redis/0 and populates redis from a flatfile called initial.flat.
+The demo flush-hydrate deletes all keys in redis/0 and populates redis from a flatfile called initial.flat.
 
 The demo service is here: https://github.com/jpegleg/fixadm
 
