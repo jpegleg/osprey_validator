@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo "Content-Type: text/html";
 echo
-uid="100_$RANDOM$RANDOM"
+uid="/var/tmp/100_$RANDOM$RANDOM"
 echo -n $blobjwt > $uid
 echo -n $1 | xxd -r -p > $uid
 jwt="$(openssl rsautl -verify -in $uid -inkey /opt/jwt/sign.pub -pubin)"
