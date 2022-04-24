@@ -24,8 +24,11 @@ COPY sign.key /opt/jwt/
 COPY sign.pub /opt/jwt/
 COPY sign.sh /opt/jwt/
 COPY verify.sh /opt/jwt/
+COPY proc100 /opt/jwt/workspace/
+COPY data.json /opt/jwt/workspace/
+COPY flush-hydrate /opt/jwt/workspace/
 
-RUN chmod +x /usr/sbin/jwt-server && chmod +x /var/www/html/cuser1.cgi && chmod +x /var/www/html/cuser2.cgi && chmod +x /var/www/html/vuser1.cgi && chmod +x /var/www/html/vuser2.cgi && chmod +x /opt/jwt/sign.sh && chmod +x /opt/jwt/verify.sh
+RUN chmod +x /opt/jwt/workspace/flush-hydrate && chmod +x /opt/jwt/workspace/proc100 && chmod +x /usr/sbin/jwt-server && chmod +x /var/www/html/cuser1.cgi && chmod +x /var/www/html/cuser2.cgi && chmod +x /var/www/html/vuser1.cgi && chmod +x /var/www/html/vuser2.cgi && chmod +x /opt/jwt/sign.sh && chmod +x /opt/jwt/verify.sh
 RUN touch /opt/jwt/jwt_access_check.log && chown www-data:www-data /opt/jwt/jwt_access_check.log
 RUN ln -sf /dev/stdout /opt/jwt/jwt.log
 RUN a2enmod cgi
