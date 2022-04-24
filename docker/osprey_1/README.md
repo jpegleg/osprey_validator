@@ -72,7 +72,8 @@ root@fd29cf75d923:/opt/jwt# redis-cli
 Here is an example of the main log data in STDOUT:
 
 ```
-AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+Proxy http-in started.
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.5. Set the 'ServerName' directive globally to suppress this message
 httpd not running, trying to start
 ============================
 | royal_blobs_jwt_service  |
@@ -82,7 +83,12 @@ httpd not running, trying to start
 -> UUID version 4 tracking
 ADDED~RSA~signed~blob~format
 Starting Warp listener on the loopback device, port 5599...
-2022-04-10 06:01:46.163864109 UTC - royal_blobs_jwt_service INFO - START JWT usage UID a2e8eda7-2f59-465f-9a36-7b7559d0698c
-2022-04-10 06:01:46.164358651 UTC - royal_blobs_jwt_service INFO - a2e8eda7-2f59-465f-9a36-7b7559d0698c - base64 BLAKE2: "F77/gzQPuQnih27AJg40pdt/KjqpWQcWKnPHSMDPEqgRzH6hwjChUbrNkovyFiIYETmqhickmh6EXDaWIYsuGw=="
-2022-04-10 06:01:57.474179728 UTC - royal_blobs_jwt_service INFO - admin resource provided
+2022-04-24 02:14:00.239792915 UTC - royal_blobs_jwt_service INFO - START JWT usage UID f338e94f-355f-4023-a9ed-b26fdaa45271
+2022-04-24 02:14:00.239949480 UTC - royal_blobs_jwt_service INFO - f338e94f-355f-4023-a9ed-b26fdaa45271 - base64 BLAKE2: "TAy6VVuyn5XR10Lzu/Z4dDLmd5hE0s0PkJgeJo9uI07ULq8ENlaan1p22gKLfBTb3flGSeGdyDKa2vn3z3BVcA=="
+CLIENT AUTH AUDIT: [24/Apr/2022:02:14:00.209] [24/Apr/2022:02:14:00.185] 172.17.0.1:44200 http-in~ http-in/node1 200 {0,"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=client.local/emailAddress=client@local","/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=internal.local/emailAddress=root@localhost"} "POST /create.cgi HTTP/1.1"
+192.168.1.121:47918 [24/Apr/2022:02:15:09.587] http-in/1: SSL client certificate not trusted
+2022-04-24 02:15:46.687124156 UTC - royal_blobs_jwt_service INFO - START JWT usage UID e24eb1da-055a-401d-9dde-d7dd06a7b34d
+2022-04-24 02:15:46.687699119 UTC - royal_blobs_jwt_service INFO - e24eb1da-055a-401d-9dde-d7dd06a7b34d - base64 BLAKE2: "k5LslHwhJLFDeXUlvypH/H5S5KEhcR7t7FXuoynL3/9HcauM2La6DKpQNpBLjq77gi4VNi4pN+OHjJHIYlHkfQ=="
+CLIENT AUTH AUDIT: [24/Apr/2022:02:15:46.663] [24/Apr/2022:02:15:46.629] 172.17.0.1:44216 http-in~ http-in/node1 200 {0,"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=client.local/emailAddress=client@local","/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=internal.local/emailAddress=root@localhost"} "GET /create.cgi HTTP/1.1"
+
 ```
