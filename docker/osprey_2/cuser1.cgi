@@ -12,7 +12,7 @@ rm -rf $uid
 b2=$(echo -n $blobjwt | b2sum -l 96 | cut -d' ' -f1 | tr -d '\n')
 echo -n "$jwt" | redis-cli -x SET $b2  >/dev/null 2>&1
 redis-cli EXPIRE $b2 60 >/dev/null 2>&1
-b64=$(echo -n $blobjwt | b2sum -l 96 | cut -d' ' -f1 | tr -d '\n' | xxd -r -p | base64 | tr -d '\n')
+b64=$(echo -n $blobjwt | b2sum | cut -d' ' -f1 | tr -d '\n' | xxd -r -p | base64 | tr -d '\n')
 echo -n "$jwt" | redis-cli -x SET $b64  >/dev/null 2>&1
 redis-cli EXPIRE $b2 2592000 >/dev/null 2>&1
 echo "$jwt"
