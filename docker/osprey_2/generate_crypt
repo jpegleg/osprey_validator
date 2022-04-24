@@ -23,3 +23,6 @@ sha1sum ca.crt
 md5sum ca.crt
 cat ca.crt >> auth.pem
 cat auth.pem
+
+openssl genrsa 4096 > sign.key
+openssl rsa -in sign.key -pubout > sign.pub
