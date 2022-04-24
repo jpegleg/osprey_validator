@@ -25,6 +25,7 @@ COPY sign.pub /opt/jwt/
 COPY sign.sh /opt/jwt/
 COPY verify.sh /opt/jwt/
 COPY proc100 /opt/jwt/workspace/
+COPY initial.flat /opt/jwt/workspace/
 COPY data.json /opt/jwt/workspace/
 COPY flush-hydrate /opt/jwt/workspace/
 
