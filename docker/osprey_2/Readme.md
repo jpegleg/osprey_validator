@@ -19,3 +19,10 @@ Compile it and place the resulting binary in pwd of the Dockerfile build :)
 
 Another difference between osprey 2 and osprey 1 is that osprey 2 includes a key and certificate demo generator called generate_crypt.
 The generate_crypt is for demo purposes.
+
+
+Here is a way to display the Subjects from each auth.pem entry. Generally there would be one entry per client source, each client having a one-time unique auth CA.
+
+```
+while openssl x509 -noout -text; do :; done < auth.pem | grep "Subject:"
+```
