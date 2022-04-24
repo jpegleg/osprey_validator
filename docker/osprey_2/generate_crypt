@@ -5,24 +5,30 @@ gensecp () {
   openssl ec -in secp384r1.pem -pubout -out secp384r1.pub
 }
 
-gensecp
-cp secp384r1.pem ca.key
-ls ca.key || exit 1
-openssl req -new -x509 -key ./ca.key -out ./ca.crt -days 3653 -subj "/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=XX"
-cat ca.crt || exit 1
-gensecp &&
-openssl req -out CSR.csr -new -key secp384r1.pem -subj "/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=XX" &&
-openssl x509 -req -days 360 -in CSR.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out generated.pem -sha256
+selfgen () {
+  gensecp
+  cp secp384r1.pem ca.key
+  openssl req -new -x509 -key ./ca.key -out ./ca.crt -days 13653 -subj "/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1" &&
+  gensecp
+  cp secp384r1.pem inter.key
+  openssl req -out CSR.csr -new -key secp384r1.pem -subj "/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2" &&
+  openssl x509 -req -days 3653 -in CSR.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out generated.pem -sha256
+  openssl verify -CAfile ca.crt generated.pem || exit 1
+
+}
+
+selfgen
+
 cat generated.pem secp384r1.pem > identity.pem
-ls -larth identity.pem
-b2sum identity.pem
-sha1sum identity.pem
-md5sum identity.pem
-b2sum ca.crt
-sha1sum ca.crt
-md5sum ca.crt
 cat ca.crt >> auth.pem
-cat auth.pem
 
 openssl genrsa 4096 > sign.key
 openssl rsa -in sign.key -pubout > sign.pub
+
+mkdir hapid 2>/dev/null
+cd hapid
+pwd &&
+selfgen
+cat generated.pem secp384r1.pem > ../keycert.pem
+cd ..
+rm -rf hapid
