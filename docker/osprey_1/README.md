@@ -82,12 +82,14 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 -> UUID version 4 tracking
 ADDED~RSA~signed~blob~format
 Starting Warp listener on the loopback device, port 5599...
-2022-04-24 07:15:56.839685480 UTC - royal_blobs_jwt_service INFO - START JWT usage UID 665bd442-b20f-4c3d-a22d-8101f957e12a
-2022-04-24 07:15:56.839923400 UTC - royal_blobs_jwt_service INFO - 665bd442-b20f-4c3d-a22d-8101f957e12a - base64 BLAKE2: "S+ZSg35TNin9utEyyxtstEAwfH1zcwGEEA+BiKYoA7XJD0IDs1X4OjiXv7E2S8/qrXEqzd4MqvFj/sWYqGJCwA=="
-\____CLIENT AUTH AUDIT: [24/Apr/2022:07:15:56.798] TLS_AES_256_GCM_SHA384 104 192.168.1.121:38470 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:07:15:56.809", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "server":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1"}
-2022-04-24 07:16:07.665244541 UTC - royal_blobs_jwt_service INFO - user command  provided
-\____CLIENT AUTH AUDIT: [24/Apr/2022:07:16:07.599] TLS_AES_256_GCM_SHA384 1127 192.168.1.121:38472 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:07:16:07.609", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "server":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1"}
-2022-04-24 07:19:21.826986500 UTC - royal_blobs_jwt_service ERRO - error: Rejection(JWTTokenError)
-\____CLIENT AUTH AUDIT: [24/Apr/2022:07:19:21.756] TLS_AES_256_GCM_SHA384 1182 192.168.1.121:38474 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:07:19:21.768", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "server":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1"}
+\____CLIENT AUTH AUDIT: [24/Apr/2022:21:43:00.363] TLS_AES_256_GCM_SHA384 192.168.1.121:53328 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:21:43:00.376", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "client cert expire":"230424081307Z", "client auth.pem unique ca entry":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1", "bytes recv":"1115"}
+2022-04-24 21:43:02.520079110 UTC - royal_blobs_jwt_service INFO - START JWT usage UID 3c6c347a-743f-4ce4-8475-5b8ffd2a1cc1
+2022-04-24 21:43:02.520556463 UTC - royal_blobs_jwt_service INFO - 3c6c347a-743f-4ce4-8475-5b8ffd2a1cc1 - base64 BLAKE2: "7lqCK13nMj3RjeU11Q0yrTTMdfHJtC0+xqwQPw5+fRebHGIoY4D1syJI/Sp8FFMeCFRLKXV6RS+RMcOpOuvT5Q=="
+\____CLIENT AUTH AUDIT: [24/Apr/2022:21:43:02.483] TLS_AES_256_GCM_SHA384 192.168.1.121:53330 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:21:43:02.495", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "client cert expire":"230424081307Z", "client auth.pem unique ca entry":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1", "bytes recv":"90"}
+2022-04-24 21:43:17.712771986 UTC - royal_blobs_jwt_service INFO - user resource provided
+\____CLIENT AUTH AUDIT: [24/Apr/2022:21:43:17.643] TLS_AES_256_GCM_SHA384 192.168.1.121:53332 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:21:43:17.656", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "client cert expire":"230424081307Z", "client auth.pem unique ca entry":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1", "bytes recv":"1115"}
+2022-04-24 21:44:20.951554473 UTC - royal_blobs_jwt_service ERRO - error: Rejection(JWTTokenError)
+\____CLIENT AUTH AUDIT: [24/Apr/2022:21:44:20.874] TLS_AES_256_GCM_SHA384 192.168.1.121:53334 http-in~ http-in/node1 200 JSON>>> {"start":"24/Apr/2022:21:44:20.887", "client":"/C=WW/ST=XX/L=XX/O=XX/OU=XX/CN=X2", "client cert expire":"230424081307Z", "client auth.pem unique ca entry":"/C=XX/ST=XX/L=XX/O=XX/OU=XX/CN=X1", "bytes recv":"1186"}
+
 
 ```
