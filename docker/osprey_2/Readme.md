@@ -26,3 +26,9 @@ Here is a way to display the Subjects from each auth.pem entry. Generally there 
 ```
 while openssl x509 -noout -text; do :; done < auth.pem | grep "Subject:"
 ```
+
+
+Osprey 2 also expands the default haproxy.cfg logging by two additional audit elements of TLS version and session duration. The HAProxy logging is easy enough to adjust. 
+
+<b>WARNING:<b> Logging the URI (request) will expose a second layer authentication element! For this reasons, the request logging is not included by default. The URI may contain sensitive data, so best leave it out. Luckily it is a second layer, the mTLS still protects even if the request is logged, but we don't need to log that data so let's not.
+
