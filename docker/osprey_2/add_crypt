@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+gensecp () {
+  openssl ecparam -name secp384r1 -genkey -noout -out secp384r1.pem
+  openssl ec -in secp384r1.pem -pubout -out secp384r1.pub
+}
+selfgen () {
+  gensecp
+  cp secp384r1.pem ca.key
+  openssl req -new -x509 -key ./ca.key -out ./ca.crt -days 13653 -subj "/C=US/ST=XX/L=city/O=org/OU=internal/CN=fixadmUUIDGOESSOMEWHERE" &&
+  gensecp
+  cp secp384r1.pem inter.key
+  openssl req -out CSR.csr -new -key secp384r1.pem -subj "/C=US/ST=XX/L=city/O=orgPOPULATE/OU=internalSERVICE/CN=fixadmUUIDGOESSOMEWHERE" &&
+  openssl x509 -req -days 365 -in CSR.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out generated.pem -sha256
+  openssl verify -CAfile ca.crt generated.pem || exit 1
+
+}
+
+selfgen
+cat generated.pem secp384r1.pem > identity.pem
+cat ca.crt >> auth.pem
