@@ -25,8 +25,6 @@ COPY sign.pub /opt/jwt/
 COPY sign.sh /opt/jwt/
 COPY verify.sh /opt/jwt/
 COPY collect_auth_pem /opt/jwt/workspace/
-COPY initial.flat /opt/jwt/workspace/
-COPY data.json /opt/jwt/workspace/
 COPY signcsr /opt/jwt/workspace/
 
 RUN chmod +x /opt/jwt/workspace/signcsr && chmod +x /opt/jwt/workspace/collect_auth_pem && chmod +x /usr/sbin/jwt-server && chmod +x /var/www/html/cuser1.cgi && chmod +x /var/www/html/cuser2.cgi && chmod +x /var/www/html/vuser1.cgi && chmod +x /var/www/html/vuser2.cgi && chmod +x /opt/jwt/sign.sh && chmod +x /opt/jwt/verify.sh
