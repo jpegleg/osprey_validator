@@ -16,5 +16,5 @@ if [ "$blen" == "0" ]; then
 else
   dateform=$(date +%Y%m%d%H%M%S%N)
   echo "$dateform $b2" >> $logpath
-  curl -X GET http://127.0.0.1:5600/user -H 'Content-Type: application/json' -H "Authorization: Bearer $jwt"
+  curl -X GET http://127.0.0.1:5601/user -H 'Content-Type: application/json' -H "Authorization: Bearer $jwt"
 fi
