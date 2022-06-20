@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 echo "Content-Type: text/html";
 echo
+mkdir /opt/jwt/webtmp/_active_lockdir_ || exit 1
 uid="/var/tmp/100_$RANDOM$RANDOM"
 echo -n $blobjwt > $uid
 echo -n $1 | xxd -r -p > $uid
@@ -18,3 +19,4 @@ else
   echo "$dateform $b2" >> $logpath
   curl -X GET http://127.0.0.1:5601/user -H 'Content-Type: application/json' -H "Authorization: Bearer $jwt"
 fi
+rmdir /opt/jwt/webtmp/_active_lockdir_
