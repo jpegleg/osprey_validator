@@ -2,7 +2,7 @@
 echo "Content-Type: text/html";
 echo
 
-blobjwt=$(curl http://127.0.0.1:5600/login -d '{"identity": "ephemeral@three.auth.domain.98_map", "service_id": "5aae5619a4b33765800bc5f9bdd1be507fb"}' -H 'Content-Type: application/json'  | cut -c14-616 | cut -d '|' -f2)
+blobjwt=$(curl http://127.0.0.1:5601/login -d '{"identity": "ephemeral@three.auth.domain.98_map", "service_id": "5aae5619a4b33765800bc5f9bdd1be507fb"}' -H 'Content-Type: application/json'  | cut -c14-616 | cut -d '|' -f2)
 
 uid="/var/tmp/99_$RANDOM$RANDOM"
 echo -n $blobjwt > $uid
