@@ -17,7 +17,7 @@ uploada () {
     echo "$line" >> /opt/jwt/webtmp/CSR.b64
   done<&0
   cat /opt/jwt/webtmp/CSR.b64 | base64 -d > /opt/jwt/webtmp/CSR.csr
-  rmdir /oot/jwt/_active_lockdir_
+  rmdir /opt/jwt/_active_lockdir_
 }
 
 listener () {
