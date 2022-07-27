@@ -31,3 +31,12 @@ Compile the fixadm_service with cargo, put the binary in the Docker build dir al
 https://github.com/jpegleg/osprey_validator/tree/main/docker/osprey_2
 
 <h4>The example execututions and HMAC need to be adjusted as needed per use case</h4>
+
+
+<h3>Osprey 3</h3>
+
+Compile the three_pki with cargo, put the binary in the Docker build dir along with the demo files and generated files:
+
+https://github.com/jpegleg/osprey_validator/tree/main/docker/osprey_3
+
+<h4>The example execututions and HMAC need to be adjusted as needed per use case</h4>
